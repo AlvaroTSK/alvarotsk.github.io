@@ -15,7 +15,7 @@
         <span class="close-btn" onclick="location.href = '../MAIN_MENU/main.html'">&times;</span>
         <h2>¿Cómo deseas jugar?</h2>
         <button id="btn1" onclick="location.href = '../M_DIFICULTY/dificulty.html?showModal=true'">Individual</button>
-        <button id="btn2" onclick="location.href = '../IMGS/comingsoon.png'">Multijugador</button>
+        <button id="btn2" onclick="localStorage.setItem('modoJuego', 'multijugador'); location.href = '../SCENE/gameMultiplayer.html'">Multijugador</button>
       </div>
     </div>  
     <script src="players.js"></script>

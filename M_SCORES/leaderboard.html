@@ -139,6 +139,44 @@
       if (!selectedPlayer) {
         alert("Selecciona un jugador primero.");
         return;
+      }
+      
+      FB.login(function (response) {
+        if (response.authResponse) {
+          const message = `🔥 ${selectedPlayer.name} logró ${selectedPlayer.kills} kills y ${selectedPlayer.score} puntos. ¡Qué crack! 🎮`;
+
+          FB.api('/me/accounts', function (accountsResponse) {
+            if (accountsResponse.error) {
+              console.error('Error obteniendo las páginas:', accountsResponse.error);
+              alert('Error obteniendo las páginas.');
+              return;
+            }
+
+            const page = accountsResponse.data.find(p => p.name === 'Blood Hunt'); // o hardcodea el ID
+            if (!page) {
+              alert('No se encontró la página.');
+              return;
+            }
+
+            const pageId = page.id;
+            const pageAccessToken = page.access_token;
+
+            FB.api(`/${pageId}/feed`, 'POST', {
+              message: message,
+              access_token: pageAccessToken
+            }, function (postResponse) {
+              if (postResponse.error) {
+                console.error('Error publicando:', postResponse.error);
+                alert('Error al publicar en la página.');
+              } else {
+                alert('¡Publicado exitosamente en Facebook!');
+              }
+            });
+          });
+        } else {
+          alert("Inicio de sesión cancelado.");
+        }
+      }, { scope: 'pages_manage_posts,pages_read_engagement' });
     }
   </script>
 

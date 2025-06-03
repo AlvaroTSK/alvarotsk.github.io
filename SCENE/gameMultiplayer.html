@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego Multiplayer</title>
+  <link rel="stylesheet" href="game.css">
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+    #hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: monospace;
+      font-size: 16px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HUD del juego -->
+  <div id="hud">Kills P1: 0 | Vida P1: 100 | Kills P2: 0 | Vida P2: 100</div>
+
+  <!-- Menú de pausa -->
+  <div id="pause-menu" class="hidden">
+    <h1 class="glitch-text">PAUSA</h1>
+    <button class="pause-btn" id="resume-btn">Reanudar</button>
+    <button class="pause-btn" id="settings-btn">Configuración</button>
+    <button class="pause-btn" id="quit-btn">Abandonar</button>
+  </div>
+
+  <!-- Confirmación de salida -->
+  <div id="share-modal" class="hidden">
+    <h1 class="glitch-text">¿Seguro que deseas salir?</h1>
+    <button class="pause-btn" id="skip-share-btn">SI</button>
+    <button class="pause-btn" id="skip-return-btn">MEJOR NO</button>
+  </div>
+
+  <!-- Menú de configuración -->
+  <div id="settings-menu" class="hidden">
+    <h1 class="glitch-text">CONFIGURACIÓN</h1>
+    <button class="pause-btn" id="back-btn">Volver</button>
+  </div>
+
+  <!-- Juego principal -->
+  <script type="module" src="main-multiplayer.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
+
