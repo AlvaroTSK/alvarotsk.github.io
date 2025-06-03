@@ -1,0 +1,117 @@
+.lacquer-regular {
+    font-family: "Lacquer", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Lacquer', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../IMGS/PixelArt.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #000000;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    color: azure;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Lacquer', sans-serif;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #a3c76a;
+    color: rgb(139, 37, 37);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff004f;
+    color: #fff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #e11b1b,
+        0 0 20px #e11b1b,
+        0 0 40px #e11b1b,
+        0 0 80px #e11b1b;
+    box-shadow: 
+        0 0 10px #e11b1b,
+        0 0 20px #e11b1b,
+        0 0 30px #e11b1b;
+    animation: shake 0.3s infinite, glow-pulse 1s infinite alternate;
+}
+
+button:hover::before {
+    opacity: 0.6;
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitchTop 0.3s infinite linear alternate;
+}
+
+@keyframes glitchTop {
+    0% { clip-path: inset(0 0 60% 0); }
+    100% { clip-path: inset(0 0 40% 0); }
+}
+
+@keyframes glitchBottom {
+    0% { clip-path: inset(60% 0 0 0); }
+    100% { clip-path: inset(40% 0 0 0); }
+}
+
+@keyframes shake {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    25% { transform: translate(-1px, 1px) rotate(-1deg); }
+    50% { transform: translate(1px, -1px) rotate(1deg); }
+    75% { transform: translate(-1px, 1px) rotate(0deg); }
+    100% { transform: translate(1px, -1px) rotate(-1deg); }
+}
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 
+            0 0 5px #ff004f,
+            0 0 10px #ff004f,
+            0 0 20px #ff004f;
+    }
+    100% {
+        box-shadow: 
+            0 0 20px #ff004f,
+            0 0 40px #ff004f,
+            0 0 60px #ff004f;
+    }
+}

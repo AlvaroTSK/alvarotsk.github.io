@@ -1,0 +1,115 @@
+.lacquer-regular {
+    font-family: "Lacquer", system-ui;
+    font-weight: 400;
+    font-style: normal;
+} 
+body {
+    font-family: 'Lacquer', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+    background-image: url(../IMGS/mainlogo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 57%;
+}
+
+/*SCOREBOARD DE TODOS LOS JUGADORES*/
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#All-scores {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(56, 56, 56, 0.8);
+    padding: 15px;
+    border: 3px solid red;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 10px red;
+}
+.glitch-text {
+    color: red;
+    font-size: 40px;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #fff;
+}
+
+/*estilo lista*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+    color: #ff3c10;
+    font-size: 1.3rem;
+}
+td {
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: center;
+}
+tr.selected {
+    background-color: #444;
+    color: #fff;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+.return-btn {
+    margin-top: 20px;
+}
+
+.return-btn {
+    margin-top: 9px;
+    padding: 10px;
+    background-color: #791010;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: sans-serif;
+}
+
+.return-btn:hover {
+    background-color: #ff1010;
+    font-family: 'Lacquer', sans-serif;
+    color: #111;
+    transform: scale(1.5);
+}
+
+#publish-btn {
+    margin-top: 13px;
+    margin-bottom: 5px;
+    font-family: 'Lacquer', sans-serif;
+    background: #3b5998;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+#publish-btn:hover {
+    font-family: 'Lacquer', sans-serif;
+    background: #2c76ff;
+    transform: scale(1.3);
+}

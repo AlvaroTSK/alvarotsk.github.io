@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vampire Idle
+* source:	https://sketchfab.com/3d-models/vampire-idle-8022edfc06934d42ab2930b6c562100a
+* author:	LostBoyz2078 (https://sketchfab.com/LostModels2025)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vampire Idle" (https://sketchfab.com/3d-models/vampire-idle-8022edfc06934d42ab2930b6c562100a) by LostBoyz2078 (https://sketchfab.com/LostModels2025) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

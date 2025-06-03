@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+
+.lacquer-regular {
+    font-family: "Lacquer", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}  
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0b2a3d;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-title {
+    color: white;
+    font-size: 50px;
+}
+
+#pause-menu, #settings-menu, #scoreboard, #share-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 3px solid red;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 10px red;
+}
+
+.glitch-text {
+    color: red;
+    font-family: 'Lacquer', sans-serif;
+    font-size: 30px;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #fff;
+    /*font-size: 3rem;
+    color: #ff004d;*/
+    position: relative;
+    letter-spacing: 4px;
+    animation: glitch 1s infinite;
+    text-transform: uppercase;
+}
+
+.pause-btn {
+    font-family: 'Lacquer', sans-serif;
+    font-size: 20px;
+    color: white;
+    background: red;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.pause-btn:hover {
+    transform: scale(1.1);
+    background: darkred;
+}
+
+#scoreboard p {
+    font-size: 25px;
+    color: white;
+    margin: 10px 0;
+}
+
+#settings-menu p {
+    font-size: 25px;
+    color: white;
+    margin: 10px 0;
+}
+
+/*API-SHARE*/
+#share-btn {
+    background: #3b5998;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+#share-btn:hover {
+    background: #365899;
+}
+
+#skip-share-btn {
+    background: #555;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+#skip-share-btn:hover {
+    background: #444;
+}
+/*fondo negro overlay*/
+.hidden {
+    display: none !important;
+}
+
+#black-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0b0b; /* oscuro vampírico */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px rgb(255, 0, 0) rgb(255, 229, 197);
+    }
+    20% {
+        text-shadow: -2px 2px rgb(169, 255, 31), 2px -2px rgb(255, 229, 197);
+    }
+    40% {
+        text-shadow: 2px -2px #f00, -2px 2px rgb(255, 0, 0);
+    }
+    60% {
+        text-shadow: 2px 2px rgb(255, 229, 197), -2px -2px rgb(169, 255, 31);
+    }
+    80% {
+        text-shadow: -1px 1px #ff004d, 1px -1px rgb(255, 0, 0);
+    }
+    100% {
+        text-shadow: 2px 2px rgb(255, 0, 0), -2px -2px rgb(255, 229, 197);
+    }
+}
+
+
+
+/*AL PERDER
+#game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(151, 54, 54, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.game-over-image {
+    width: 80%;
+    max-width: 600px;
+    animation: fadeIn 2s ease-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.hidden {
+    display: none;
+}
+*/

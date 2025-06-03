@@ -1,0 +1,146 @@
+.lacquer-regular {
+    font-family: "Lacquer", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lacquer', sans-serif;
+    background-color: #111;
+    color: whitesmoke;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.29);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal {
+    background-color: #e3e3e3a3;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(219, 26, 26, 0.1);
+    max-width: 300px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.modal button {
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background-color: #791010;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal button:hover {
+    background-color: #ff1010;
+    font-family: 'Lacquer', sans-serif;
+    color: #111;
+    transform: scale(1.5);
+}
+
+.hidden {
+    display: none;
+}
+
+.glitch {
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-family: 'Lacquer', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.6rem;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+    animation: glitchTop 1.7s infinite linear alternate-reverse;
+    color: #f0f; /* magenta */
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitchBottom 1.5s infinite linear alternate-reverse;
+    color: #0ff; /* cyan */
+    z-index: -2;
+}
+
+@keyframes glitchTop {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0px, 0px);
+    }
+    10% {
+        clip: rect(0, 9999px, 10px, 0);
+        transform: translate(-2px, -2px);
+    }
+    20% {
+        clip: rect(5px, 9999px, 15px, 0);
+        transform: translate(2px, 1px);
+    }
+    40% {
+        clip: rect(3px, 9999px, 12px, 0);
+        transform: translate(-1px, -1px);
+    }
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes glitchBottom {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0px, 0px);
+    }
+    10% {
+        clip: rect(12px, 9999px, 22px, 0);
+        transform: translate(2px, 1px);
+    }
+    20% {
+        clip: rect(10px, 9999px, 18px, 0);
+        transform: translate(-3px, 0px);
+    }
+    40% {
+        clip: rect(14px, 9999px, 24px, 0);
+        transform: translate(1px, -2px);
+    }
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+        transform: translate(0px, 0px);
+    }
+}

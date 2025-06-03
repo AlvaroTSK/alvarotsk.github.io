@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEADERBOARD</title>
+    <link rel="stylesheet" href="stylescores.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-container">
+      <div id="All-scores" class="container">
+        <h1 class="glitch-text">PUNTUACIONES</h1>
+        <table id="scoreboard">
+          <thead>
+            <tr>
+              <th>Jugador</th>
+              <th>Kills</th>
+              <th>Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-player="1">
+              <td>Juanito</td>
+              <td class="kills">12</td>
+              <td class="points">1200</td>
+            </tr>
+            <tr data-player="2">
+              <td>Maria</td>
+              <td class="kills">9</td>
+              <td class="points">950</td>
+            </tr>
+            <tr data-player="4">
+              <td>Sofía</td>
+              <td class="kills">7</td>
+              <td class="points">760</td>
+            </tr>
+            <tr data-player="5">
+              <td>Carlos</td>
+              <td class="kills">5</td>
+              <td class="points">500</td>
+            </tr>
+          </tbody>
+        </table>    
+        <button id="publish-btn" onclick="publishScore()">Publicar en Facebook</button>
+        <button class="return-btn" onclick="location.href = '../MAIN_MENU/main.html'">Regresar</button>
+    </div>
+  </div>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script>
+    // Variables pal leaderboard
+    window.onload = function () {
+      const name = localStorage.getItem("playerName");
+      const playerKills = localStorage.getItem("playerKills");
+      const playerScore = localStorage.getItem("playerScore");
+    
+      console.log(name, playerKills, playerScore);
+
+      if (name && playerKills !== null && playerScore !== null) {
+        const tableBody = document.querySelector("#scoreboard tbody");
+        
+        if (!tableBody) {
+          console.error("No se encontró el tbody");
+          return;
+        }
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+          <td>${name}</td>
+          <td class="kills">${playerKills}</td>
+          <td class="points">${playerScore}</td>
+        `;
+        tableBody.appendChild(newRow);
+      } else {
+        console.warn("Faltan datos en localStorage");
+      }
+    
+      ordenarLeaderboardPorPuntaje();
+    
+      // Asegura que todas las filas tengan el evento de selección
+      document.querySelectorAll("#scoreboard tbody tr").forEach(row => {
+        row.addEventListener("click", function () {
+          document.querySelectorAll("#scoreboard tbody tr").forEach(r => r.classList.remove("selected"));
+          this.classList.add("selected");
+        
+          const cells = this.querySelectorAll("td");
+          selectedPlayer = {
+            name: cells[0].textContent,
+            kills: cells[1].textContent,
+            score: cells[2].textContent
+          };
+        });
+      });
+    };
+
+    function ordenarLeaderboardPorPuntaje() {
+      const tbody = document.querySelector("#scoreboard tbody");
+      const filas = Array.from(tbody.querySelectorAll("tr"));
+
+      filas.sort((a, b) => {
+        const puntosA = parseInt(a.querySelector(".points").textContent);
+        const puntosB = parseInt(b.querySelector(".points").textContent);
+        return puntosB - puntosA;
+      });
+
+      tbody.innerHTML = "";
+      filas.forEach(row => tbody.appendChild(row));
+    }
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1074980501140199',
+        xfbml: true,
+        version: 'v18.0'
+      });
+    };
+
+    let selectedPlayer = null;
+
+    document.querySelectorAll("#scoreboard tbody tr").forEach(row => {
+      row.addEventListener("click", function () {
+        document.querySelectorAll("#scoreboard tbody tr").forEach(r => r.classList.remove("selected"));
+        this.classList.add("selected");
+
+        const cells = this.querySelectorAll("td");
+        selectedPlayer = {
+          name: cells[0].textContent,
+          kills: cells[1].textContent,
+          score: cells[2].textContent
+        };
+      });
+    });
+
+    function publishScore() {
+      if (!selectedPlayer) {
+        alert("Selecciona un jugador primero.");
+        return;
+    }
+  </script>
+
+</body>
+</html>
